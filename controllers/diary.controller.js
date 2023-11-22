@@ -3,6 +3,10 @@ const getMyDiary= async (req, res) => {
 }
 
 
+const addNewDiary = async (req, res) => {
+    res.render("")
+}
+
 module.exports = {
     getMyDiary
 }
