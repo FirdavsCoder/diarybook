@@ -1,21 +1,21 @@
 module.exports = (sequelize, Sequelize) => {
     const Diary = sequelize.define('diary', {
         id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
         text: {
-            type: DataTypes.STRING(500),
+            type: Sequelize.STRING(500),
             allowNull: false
         },
         imageUrl: {
-            type: DataTypes.STRING(1000),
+            type: Sequelize.STRING(1000),
             allowNull: true
         }
     }, {
         timestamps: true
     })
-
+    return Diary
 }

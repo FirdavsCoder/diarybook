@@ -12,4 +12,4 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 db.diary = require("./diary.model")(sequelize, Sequelize)
 
-module.exports = sequelize
+module.exports = db
