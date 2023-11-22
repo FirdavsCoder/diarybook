@@ -20,5 +20,6 @@ const addNewDiary = async (req, res) => {
 }
 
 module.exports = {
-    getMyDiary
+    getMyDiary,
+    addNewDiary
 }
