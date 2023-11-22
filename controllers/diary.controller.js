@@ -5,7 +5,7 @@ const getMyDiary= async (req, res) => {
 
 const addNewDiary = async (req, res) => {
     try {
-        
+        const { imageUrl, text } = req.body
     } catch (error) {
         console.log(error);
     }
