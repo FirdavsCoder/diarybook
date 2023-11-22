@@ -3,6 +3,10 @@ const dotenv = require("dotenv")
 const exphbs = require("express-handlebars")
 const path = require("path")
 const dailyRoutes = require("./routes/dailyRoutes")
+const sequelize = require("./config/db")
+
+
+
 
 // Initial env variables
 dotenv.config()
@@ -28,6 +32,18 @@ app.use("/", dailyRoutes)
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, () => {
-    console.log(`Server running on port: http://localhost:${PORT}`);
-})
+
+const start = async () => {
+    try {
+        const connect = await sequelize.sync()
+        console.log(connect);
+        app.listen(PORT, () => {
+            console.log(`Server running on port: http://localhost:${PORT}`);
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+start()
