@@ -7,7 +7,7 @@ const {
 
 
 router.get("/", getMyDiary)
-router.post("/diary/add", addNewDiary)
+router.post("/add", addNewDiary)
 
 
 module.exports = router
