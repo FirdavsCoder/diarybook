@@ -13,7 +13,7 @@ const addNewDiary = async (req, res) => {
             imageUrl: imageUrl,
             text: text
         })
-        res.redirect("/diary/my")
+        res.redirect("/")
     } catch (error) {
         console.log(error);
     }
