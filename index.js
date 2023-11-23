@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 
 // Initialize Routes
-app.use("/", dailyRoutes)
+app.use("/diary", dailyRoutes)
 
 
 

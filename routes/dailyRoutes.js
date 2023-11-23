@@ -3,12 +3,14 @@ const router = express.Router()
 const {
     getMyDiary,
     addNewDiary,
-    getDiaryById
+    getDiaryById, updateDiaryGetPage
 } = require("../controllers/diary.controller")
 
-router.get("/diary/my", getMyDiary)
-router.get("/diary/:id", getDiaryById)
-router.post("/diary/add", addNewDiary)
+router.get("/my", getMyDiary)
+router.get("/:id", getDiaryById)
+router.get("/update/:id", updateDiaryGetPage)
+router.post("/add", addNewDiary)
+
 
 
 module.exports = router
