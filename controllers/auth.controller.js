@@ -10,9 +10,13 @@ const getLoginPage = async (req, res) => {
 
 
 const loginUser = async (req, res) => {
+    try {
     req.isLogged = true
-    
+
     res.redirect("/diary/my")
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 
