@@ -1,5 +1,6 @@
 const db = require("../models/index")
 const Diary = db.diary
+const Comment = db.comment
 
 const getMyDiary= async (req, res) => {
     const diaries = await Diary.findAll({raw: true})
@@ -67,6 +68,16 @@ const deleteDiary = async (req, res) => {
         res.redirect("/diary/my")
     } catch (error) {
         console.log(error)
+    }
+}
+
+const addCommentToDiary = async (req, res) => {
+    try {
+        await Comment.create({
+            
+        })
+    } catch (e) {
+        console.log(e)
     }
 }
 
