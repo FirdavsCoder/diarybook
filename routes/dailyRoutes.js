@@ -3,13 +3,14 @@ const router = express.Router()
 const {
     getMyDiary,
     addNewDiary,
-    getDiaryById, updateDiaryGetPage
+    getDiaryById, updateDiaryGetPage, updateDiary
 } = require("../controllers/diary.controller")
 
 router.get("/my", getMyDiary)
 router.get("/:id", getDiaryById)
 router.get("/update/:id", updateDiaryGetPage)
 router.post("/add", addNewDiary)
+router.post("/diary/update", updateDiary)
 
 
 
