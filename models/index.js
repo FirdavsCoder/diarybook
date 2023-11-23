@@ -18,7 +18,8 @@ db.diary.hasMany(db.comment, {as: 'comment'})
 db.comment.belongsTo(db.diary, {
     foreignKey: "diaryId",
     as: "diary",
-    onDelete: "CASCADE"
+    onDelete: "CASCADE",
+    constraints: true
 })
 
 
