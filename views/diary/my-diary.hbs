@@ -41,7 +41,9 @@
                         <div class="card-footer">
                             <a href="/diary/{{id}}" type="button" class="btn btn-success">Open</a>
                             <a href="/diary/update/{{id}}" type="button" class="btn btn-primary">Update</a>
-                            <a href="#" type="button" class="btn btn-danger">Delete</a>
+                            <form action="/diary/delete/{{id}}" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 {{/each}}

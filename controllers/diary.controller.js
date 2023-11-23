@@ -59,10 +59,23 @@ const updateDiary = async (req, res) => {
 
 
 
+const deleteDiary = async (req, res) => {
+    try {
+        await Diary.destroy(
+            {where: {id: req.params.id}}
+        )
+        res.redirect("/diary/my")
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 module.exports = {
     getMyDiary,
     addNewDiary,
     getDiaryById,
     updateDiaryGetPage,
-    updateDiary
+    updateDiary,
+    deleteDiary
 }
