@@ -2,7 +2,12 @@ const db = require("../models/index")
 const Diary = db.diary
 
 const getMyDiary= async (req, res) => {
-    res.render("diary/my-diary")
+    const diaries = await Diary.findAll({raw: true})
+    console.log(diaries[0].dataValues)
+    res.render("diary/my-diary", {
+        title: "My diary",
+        diaries: diaries
+    })
 }
 
 
@@ -13,7 +18,7 @@ const addNewDiary = async (req, res) => {
             imageUrl: imageUrl,
             text: text
         })
-        res.redirect("/")
+        res.redirect("/diary/my")
     } catch (error) {
         console.log(error);
     }

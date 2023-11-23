@@ -20,48 +20,34 @@
     </div>
     <div class="row">
         <div class="col-md-6 offset-3">
-            <div class="card mb-5 mt-5">
-                <div class="card-body">
-                    <div class="list-group mb-1">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <img src="https://img.freepik.com/premium-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"
-                                class="rounded-circle float-start" style="height: 30px;" alt="...">
-                            <h5 class="card-title">Username</h5>
-                        </a>
+            {{#if diaries}}
+                {{#each diaries}}
+                    <div class="card mb-5 mt-5">
+                        <div class="card-body">
+                            <div class="list-group mb-1">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <img src="https://img.freepik.com/premium-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"
+                                         class="rounded-circle float-start" style="height: 30px;" alt="...">
+                                    <h5 class="card-title">Username</h5>
+                                </a>
+                            </div>
+                            <p class="card-text">{{text}}</p>
+                            <p class="card-text"><small class="text-muted">{{createdAt}}</small></p>
+                        </div>
+                        {{#if imageUrl}}
+                        <img src="{{imageUrl}}"
+                             class="card-img-bottom" alt="...">
+                        {{/if}}
+                        <div class="card-footer">
+                            <a href="#" type="button" class="btn btn-success">Open</a>
+                            <a href="#" type="button" class="btn btn-primary">Update</a>
+                            <a href="#" type="button" class="btn btn-danger">Delete</a>
+                        </div>
                     </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img src="https://gadgettendency.com/wp-content/uploads/2023/09/Mercedes-Benz-announced-a-small-Gelik-560x391.png"
-                    class="card-img-bottom" alt="...">
-                <div class="card-footer">
-                    <a href="#" type="button" class="btn btn-success">Update</a>
-                    <a href="#" type="button" class="btn btn-primary">Update</a>
-                    <a href="#" type="button" class="btn btn-danger">Delete</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="list-group mb-1">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <img src="https://img.freepik.com/premium-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"
-                                class="rounded-circle float-start" style="height: 30px;" alt="...">
-                            <h5 class="card-title">Username</h5>
-                        </a>
-                    </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img src="https://www.bmw.uz/content/dam/bmw/common/all-models/m-series/xm/2022/Highlights/bmw-x-series-xm-ms-bmw-red-label.jpg"
-                    class="card-img-bottom" alt="...">
-                <div class="card-footer">
-                    <a href="#" type="button" class="btn btn-success">Open</a>
-                    <a href="#" type="button" class="btn btn-primary">Update</a>
-                    <a href="#" type="button" class="btn btn-danger">Delete</a>
-                </div>
-            </div>
+                {{/each}}
+            {{else}}
+                <h1>No Diary added yet!</h1>
+            {{/if}}
         </div>
     </div>
 </div>

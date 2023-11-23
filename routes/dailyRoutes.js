@@ -6,7 +6,7 @@ const {
 } = require("../controllers/diary.controller")
 
 
-router.get("/", getMyDiary)
+router.get("/diary/my", getMyDiary)
 router.post("/diary/add", addNewDiary)
 
 
