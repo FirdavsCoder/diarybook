@@ -15,10 +15,38 @@
                 {{#if diary.imageUrl}}
                 <img src="{{diary.imageUrl}}" class="card-img-bottom" alt="...">
                 {{/if}}
-                <div class="card-footer">
-                    <a href="#" type="button" class="btn btn-success">Update</a>
-                    <a href="#" type="button" class="btn btn-primary">Update</a>
-                    <a href="#" type="button" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mb-5 mt-1">
+                <div class="card-body">
+                    <form action="/diary/update/{{diary.id}}" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Add comment</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="2" placeholder="Your comment..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mb-3 mt-1">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img style="width: 190px;" src="https://img.freepik.com/premium-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

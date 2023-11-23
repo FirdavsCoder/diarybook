@@ -7,7 +7,6 @@ const {
 } = require("../controllers/diary.controller")
 
 router.get("/my", getMyDiary)
-router.get("/:id", getDiaryById)
 router.get("/update/:id", updateDiaryGetPage)
 router.post("/add", addNewDiary)
 router.post("/update/:id", updateDiary)
@@ -15,5 +14,6 @@ router.post("/delete/:id", deleteDiary)
 
 
 
+router.get("/get/:id", getDiaryById)
 
 module.exports = router

@@ -11,5 +11,6 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 db.diary = require("./diary.model")(sequelize, Sequelize)
+db.comment = require("./comment.model")(sequelize, Sequelize)
 
 module.exports = db
