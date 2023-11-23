@@ -26,14 +26,13 @@ const addNewDiary = async (req, res) => {
 
 
 const getDiaryById= async (req, res) => {
-    const [diaries] = await Diary.findAll({
-        where: {id: Number(req.params.id)},
+    const diary = await Diary.findByPk(Number(req.params.id), {
         raw: true
     })
     // console.log(diaries[0].dataValues)
     res.render("diary/one-diary", {
         title: "One diary",
-        diaries: diaries
+        diary
     })
 }
 

@@ -9,11 +9,11 @@
                             <h5 class="card-title">Username</h5>
                         </a>
                     </div>
-                    <p class="card-text">{{diaries.text}}</p>
-                    <p class="card-text"><small class="text-muted">{{diaries.createdAt}}</small></p>
+                    <p class="card-text">{{diary.text}}</p>
+                    <p class="card-text"><small class="text-muted">{{diary.createdAt}}</small></p>
                 </div>
-                {{#if diaries.imageUrl}}
-                <img src="{{diaries.imageUrl}}" class="card-img-bottom" alt="...">
+                {{#if diary.imageUrl}}
+                <img src="{{diary.imageUrl}}" class="card-img-bottom" alt="...">
                 {{/if}}
                 <div class="card-footer">
                     <a href="#" type="button" class="btn btn-success">Update</a>
