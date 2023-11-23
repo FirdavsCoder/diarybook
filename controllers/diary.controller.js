@@ -34,16 +34,19 @@ const getDiaryById= async (req, res) => {
     //     raw: true
     // })
     // console.log(comments)
-    const diary = await Diary.findByPk(Number(req.params.id), {
-        raw: true,
+    const data = await Diary.findByPk(Number(req.params.id), {
+        raw: false,
+        plain: true,
         include: ['comment'],
         nest: true
     })
+    const diary = await data.toJSON()
     console.log(diary)
     // console.log(diaries[0].dataValues)
     res.render("diary/one-diary", {
         title: "One diary",
-        diary
+        diary,
+        comments: diary.comment
     })
 }
 
