@@ -27,21 +27,23 @@ const addNewDiary = async (req, res) => {
 
 
 const getDiaryById= async (req, res) => {
-    const comments = await Comment.findAll({
-        where: {
-            diaryId: req.params.id
-        },
-        raw: true
-    })
-    console.log(comments)
+    // const comments = await Comment.findAll({
+    //     where: {
+    //         diaryId: req.params.id
+    //     },
+    //     raw: true
+    // })
+    // console.log(comments)
     const diary = await Diary.findByPk(Number(req.params.id), {
-        raw: true
+        raw: true,
+        include: ['comment'],
+        nest: true
     })
+    console.log(diary)
     // console.log(diaries[0].dataValues)
     res.render("diary/one-diary", {
         title: "One diary",
-        diary,
-        comments
+        diary
     })
 }
 
