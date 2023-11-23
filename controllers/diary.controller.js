@@ -24,7 +24,21 @@ const addNewDiary = async (req, res) => {
     }
 }
 
+
+const getDiaryById= async (req, res) => {
+    const [diaries] = await Diary.findAll({
+        where: {id: req.params.id},
+        raw: true
+    })
+    // console.log(diaries[0].dataValues)
+    res.render("diary/one-diary", {
+        title: "One diary",
+        diaries: diaries
+    })
+}
+
 module.exports = {
     getMyDiary,
-    addNewDiary
+    addNewDiary,
+    getDiaryById
 }
