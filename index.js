@@ -29,6 +29,10 @@ app.use("/diary", dailyRoutes)
 
 
 
+app.use((req, res, next) => {
+    res.render("diary/404")
+})
+
 
 
 const PORT = process.env.PORT || 3000
