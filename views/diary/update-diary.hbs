@@ -3,7 +3,7 @@
         <div class="col-md-6 offset-3">
             <div class="card mt-3">
                 <div class="card-body">
-                    <form action="/diary/update" method="post">
+                    <form action="/diary/update" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">{{diary.text}}</textarea>

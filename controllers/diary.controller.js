@@ -46,7 +46,7 @@ const updateDiaryGetPage= async (req, res) => {
 }
 
 const updateDiary = async (req, res) => {
-    
+
 }
 
 
