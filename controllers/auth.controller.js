@@ -10,7 +10,9 @@ const getLoginPage = async (req, res) => {
 
 
 const loginUser = async (req, res) => {
-    res.render("auth/login", {title: "Login Page"})
+    req.isLogged = true
+    
+    res.redirect("/diary/my")
 }
 
 
