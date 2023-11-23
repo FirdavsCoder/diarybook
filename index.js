@@ -4,7 +4,7 @@ const exphbs = require("express-handlebars")
 const path = require("path")
 const dailyRoutes = require("./routes/dailyRoutes")
 const db = require("./models/index")
-
+const authRoutes = require("./routes/authRoutes")
 
 
 
@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 // Initialize Routes
 app.use("/diary", dailyRoutes)
+app.use("/auth", authRoutes)
 
 
 
