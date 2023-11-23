@@ -2,12 +2,13 @@ const db = require("../models/index")
 const Diary = db.diary
 
 const getMyDiary= async (req, res) => {
-    const diaries = await Diary.findAll({raw: true})    
+    const diaries = await Diary.findAll({raw: true})
     res.render("diary/my-diary", {
         title: "My diary",
         diaries: diaries
     })
 }
+
 
 
 const addNewDiary = async (req, res) => {
