@@ -51,7 +51,7 @@ const updateDiary = async (req, res) => {
             {text: req.body.text},
             {where: {id: req.params.id}}
         )
-        res.redirect("diary/my")
+        res.redirect("/diary/my")
     } catch (error) {
         console.log(error)
     }
