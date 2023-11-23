@@ -6,7 +6,7 @@ const getMyDiary= async (req, res) => {
     const diaries = await Diary.findAll({raw: true})
     res.render("diary/my-diary", {
         title: "My diary",
-        diaries: diaries
+        diaries: diaries.reverse()
     })
 }
 
