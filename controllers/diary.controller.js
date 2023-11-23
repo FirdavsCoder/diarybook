@@ -46,7 +46,15 @@ const updateDiaryGetPage= async (req, res) => {
 }
 
 const updateDiary = async (req, res) => {
-
+    try {
+        await Diary.update(
+            {text: req.body.text},
+            {where: {id: req.params.id}}
+        )
+        res.redirect("diary/my")
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
