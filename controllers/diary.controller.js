@@ -74,8 +74,11 @@ const deleteDiary = async (req, res) => {
 const addCommentToDiary = async (req, res) => {
     try {
         await Comment.create({
-            
+            name: "Username",
+            comment: req.body.comment,
+            diaryId: req.params.id
         })
+        res.redirect("/diary/get/" + req.params.id)
     } catch (e) {
         console.log(e)
     }
@@ -88,5 +91,6 @@ module.exports = {
     getDiaryById,
     updateDiaryGetPage,
     updateDiary,
-    deleteDiary
+    deleteDiary,
+    addCommentToDiary
 }
