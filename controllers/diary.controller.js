@@ -36,6 +36,17 @@ const getDiaryById= async (req, res) => {
     })
 }
 
+
+const updateDiary= async (req, res) => {
+    const diary = await Diary.findByPk(req.params.id, {raw: true})
+    res.render("diary/my-diary", {
+        title: "Update diary",
+        diary
+    })
+}
+
+
+
 module.exports = {
     getMyDiary,
     addNewDiary,
