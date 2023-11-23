@@ -27,13 +27,6 @@ const addNewDiary = async (req, res) => {
 
 
 const getDiaryById= async (req, res) => {
-    // const comments = await Comment.findAll({
-    //     where: {
-    //         diaryId: req.params.id
-    //     },
-    //     raw: true
-    // })
-    // console.log(comments)
     const data = await Diary.findByPk(Number(req.params.id), {
         raw: false,
         plain: true,
