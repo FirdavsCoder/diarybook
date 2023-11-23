@@ -46,7 +46,7 @@ const getDiaryById= async (req, res) => {
     res.render("diary/one-diary", {
         title: "One diary",
         diary,
-        comments: diary.comment
+        comments: diary.comment.reverse()
     })
 }
 
