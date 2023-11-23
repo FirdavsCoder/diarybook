@@ -2,8 +2,7 @@ const db = require("../models/index")
 const Diary = db.diary
 
 const getMyDiary= async (req, res) => {
-    const diaries = await Diary.findAll({raw: true})
-    console.log(diaries[0].dataValues)
+    const diaries = await Diary.findAll({raw: true})    
     res.render("diary/my-diary", {
         title: "My diary",
         diaries: diaries
