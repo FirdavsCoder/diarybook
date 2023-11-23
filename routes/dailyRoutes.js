@@ -10,7 +10,7 @@ router.get("/my", getMyDiary)
 router.get("/:id", getDiaryById)
 router.get("/update/:id", updateDiaryGetPage)
 router.post("/add", addNewDiary)
-router.post("/diary/update", updateDiary)
+router.post("/update", updateDiary)
 
 
 
