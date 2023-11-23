@@ -2,7 +2,7 @@ const db = require("../models/index")
 const Diary = db.diary
 
 const getMyDiary= async (req, res) => {
-    res.render("index")
+    res.render("diary/my-diary")
 }
 
 
