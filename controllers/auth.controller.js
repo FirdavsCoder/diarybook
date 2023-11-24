@@ -47,9 +47,19 @@ const getRegisterPage = async (req, res) => {
 }
 
 
+const registerUser = async  (req, res) => {
+    const  { email, name, password, password2 } = req.body
+    if (password !== password2) {
+        res.redirect("/auth/register")
+    }
+
+}
+
+
 module.exports = {
     getLoginPage,
     loginUser,
     logout,
-    getRegisterPage
+    getRegisterPage,
+    registerUser
 }
