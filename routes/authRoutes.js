@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const bcrypt = require("bcryptjs")
 const {
     getLoginPage, loginUser, logout, getRegisterPage, registerUser
 } = require("../controllers/auth.controller")
