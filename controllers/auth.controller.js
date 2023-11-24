@@ -4,6 +4,7 @@ const User = db.user
 
 const getLoginPage = async (req, res) => {
     try {
+        const isAuthenticated = req.session.isLogged
         res.render("auth/login", {title: "Login Page", isAuthenticated})
     } catch (e) {
         console.log(e)

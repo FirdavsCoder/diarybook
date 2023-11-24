@@ -7,7 +7,7 @@ const getMyDiary= async (req, res) => {
     res.render("diary/my-diary", {
         title: "My diary",
         diaries: diaries.reverse(),
-        isAuthenticated: req.isLogged
+        isAuthenticated: req.session.isLogged
     })
 }
 
@@ -40,7 +40,8 @@ const getDiaryById= async (req, res) => {
     res.render("diary/one-diary", {
         title: "One diary",
         diary,
-        comments: diary.comment.reverse()
+        comments: diary.comment.reverse(),
+        isAuthenticated: req.session.isLogged
     })
 }
 
