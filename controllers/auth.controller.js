@@ -50,12 +50,14 @@ const getRegisterPage = async (req, res) => {
 const registerUser = async  (req, res) => {
     try{
         const  { email, name, password, password2 } = req.body
+        console.log(email, name, password)
         if (password !== password2) {
-            res.redirect("/auth/register")
+            return res.redirect("/auth/register")
         }
         const userEmailExist = await User.findOne({email: email})
+        console.log(userEmailExist)
         if (userEmailExist) {
-            res.redirect("/auth/register")
+            return res.redirect("/auth/register")
         }
         await User.create(
             email,
