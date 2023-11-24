@@ -26,7 +26,11 @@ const loginUser = async (req, res) => {
                     if (err) throw err;
                     return res.redirect("/diary/my")
                 })
+            } else {
+                return res.redirect("/auth/login")
             }
+        } else {
+            return res.redirect("/auth/login")
         }
     } catch (e) {
         console.log(e)
