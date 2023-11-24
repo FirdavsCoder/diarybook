@@ -59,7 +59,7 @@ const registerUser = async  (req, res) => {
         if (userEmailExist) {
             return res.redirect("/auth/register")
         }
-        const salt = await bcrypt.genSalt(20)
+        const salt = await bcrypt.genSalt(15)
         const hashedPassword = await bcrypt.hash(password, salt)
         console.log(hashedPassword)
         await User.create(
