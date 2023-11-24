@@ -16,19 +16,8 @@ const getLoginPage = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        req.session.isLogged = true
-        req.session.user = {
-            id: 1,
-            email: 'user@mail.com',
-            name: 'user',
-            password: '1234567'
-        }
-        console.log(req.session)
-        req.session.save(err => {
-                if(err) throw err;
-                res.redirect("/diary/my")
-            }
-        )
+        const userExist = await User.findOne({where: {email: req.body.email}})
+        
     } catch (e) {
         console.log(e)
     }
@@ -59,14 +48,14 @@ const registerUser = async  (req, res) => {
         if (userEmailExist) {
             return res.redirect("/auth/register")
         }
-        const salt = await bcrypt.genSalt(15)
+        const salt = await bcrypt.genSalt(12)
         const hashedPassword = await bcrypt.hash(password, salt)
         console.log(hashedPassword)
         await User.create(
             {
                 email,
                 name,
-                hashedPassword
+                password: hashedPassword
             }
         )
         return res.redirect("/auth/login")
