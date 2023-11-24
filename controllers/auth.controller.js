@@ -48,13 +48,23 @@ const getRegisterPage = async (req, res) => {
 
 
 const registerUser = async  (req, res) => {
-    const  { email, name, password, password2 } = req.body
-    if (password !== password2) {
-        res.redirect("/auth/register")
-    }
-    const userEmailExist = await User.findOne({email: email})
-    if (userEmailExist) {
-        res.redirect("/auth/register")
+    try{
+        const  { email, name, password, password2 } = req.body
+        if (password !== password2) {
+            res.redirect("/auth/register")
+        }
+        const userEmailExist = await User.findOne({email: email})
+        if (userEmailExist) {
+            res.redirect("/auth/register")
+        }
+        await User.create(
+            email,
+            name,
+            password
+        )
+        return res.redirect("/diary/my")
+    } catch (e) {
+        console.log(e)
     }
 }
 
