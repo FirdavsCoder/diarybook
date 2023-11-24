@@ -9,14 +9,17 @@ const {
     deleteDiary,
     addCommentToDiary
 } = require("../controllers/diary.controller")
+const {
+    loginRequired
+} = require("../middlewares/auth")
 
-router.get("/my", getMyDiary)
-router.get("/update/:id", updateDiaryGetPage)
-router.post("/add", addNewDiary)
-router.post("/update/:id", updateDiary)
-router.post("/delete/:id", deleteDiary)
-router.post("/comment/:id", addCommentToDiary)
-router.post("/comment/")
+router.get("/my", loginRequired, getMyDiary)
+router.get("/update/:id", loginRequired, updateDiaryGetPage)
+router.post("/add", loginRequired, addNewDiary)
+router.post("/update/:id", loginRequired, updateDiary)
+router.post("/delete/:id", loginRequired, deleteDiary)
+router.post("/comment/:id", loginRequired, addCommentToDiary)
+// router.post("/comment/")
 
 
 
