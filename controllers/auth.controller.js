@@ -54,7 +54,7 @@ const registerUser = async  (req, res) => {
         if (password !== password2) {
             return res.redirect("/auth/register")
         }
-        const userEmailExist = await User.findOne({ email })
+        const userEmailExist = await User.findOne({ where: {email} })
         console.log(userEmailExist)
         if (userEmailExist) {
             return res.redirect("/auth/register")
