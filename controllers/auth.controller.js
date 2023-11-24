@@ -52,7 +52,10 @@ const registerUser = async  (req, res) => {
     if (password !== password2) {
         res.redirect("/auth/register")
     }
-
+    const userEmail = await User.findOne({email: email})
+    if (email === userEmail) {
+        res.redirect("/auth/register")
+    }
 }
 
 
