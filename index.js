@@ -1,6 +1,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const exphbs = require("express-handlebars")
+const session = require("express-session")
 const path = require("path")
 const dailyRoutes = require("./routes/dailyRoutes")
 const db = require("./models/index")
