@@ -19,6 +19,14 @@ const loginUser = async (req, res) => {
         const userExist = await User.findOne({where: {email: req.body.email}})
         if (userExist) {
             const matchPassword = await bcrypt.compare(req.body.password, userExist.password)
+            if (matchPassword) {
+                req.session.isLogged = true
+                req.session.user = userExist
+                req.session.save(err => {
+                    if (err) throw err;
+                    res.redirect("/diary/my")
+                })
+            }
         }
     } catch (e) {
         console.log(e)
