@@ -3,8 +3,11 @@ const User = db.user
 
 
 const getLoginPage = async (req, res) => {
-    const isAuthenticated = req.get("Cookie").split("=")[1] === "true"
-    res.render("auth/login", {title: "Login Page", isAuthenticated})
+    try {
+        res.render("auth/login", {title: "Login Page", isAuthenticated})
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 
@@ -12,7 +15,7 @@ const getLoginPage = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        res.setHeader("Set-Cookie", "loggedIn=true")
+        req.session.isLogged = true
         res.redirect("/diary/my")
     } catch (e) {
         console.log(e)
