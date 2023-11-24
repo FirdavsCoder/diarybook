@@ -42,8 +42,14 @@ const logout = async (req, res) => {
 }
 
 
+const getRegisterPage = async (req, res) => {
+    res.render("auth/register", {title: "Registration page"})
+}
+
+
 module.exports = {
     getLoginPage,
     loginUser,
-    logout
+    logout,
+    getRegisterPage
 }
