@@ -66,7 +66,7 @@ const registerUser = async  (req, res) => {
                 password
             }
         )
-        return res.redirect("/diary/my")
+        return res.redirect("/auth/login    ")
     } catch (e) {
         console.log(e)
     }
