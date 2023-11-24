@@ -35,10 +35,15 @@ const loginUser = async (req, res) => {
 }
 
 
-
+const logout = async (req, res) => {
+    req.session.destroy(() => {
+        res.redirect("/auth/login")
+    })
+}
 
 
 module.exports = {
     getLoginPage,
-    loginUser
+    loginUser,
+    logout
 }
