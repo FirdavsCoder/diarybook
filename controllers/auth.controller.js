@@ -24,7 +24,7 @@ const loginUser = async (req, res) => {
                 req.session.user = userExist
                 req.session.save(err => {
                     if (err) throw err;
-                    res.redirect("/diary/my")
+                    return res.redirect("/diary/my")
                 })
             }
         }
