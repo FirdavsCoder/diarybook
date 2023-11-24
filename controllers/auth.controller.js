@@ -3,7 +3,8 @@ const User = db.user
 
 
 const getLoginPage = async (req, res) => {
-    res.render("auth/login", {title: "Login Page"})
+    const isAuthenticated = req.get("Cookie").split("=")[1]
+    res.render("auth/login", {title: "Login Page", isAuthenticated})
 }
 
 
@@ -11,9 +12,8 @@ const getLoginPage = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-    req.isLogged = true
-
-    res.redirect("/diary/my")
+        res.setHeader("Set-Cookie", "loggedIn=true")
+        res.redirect("/diary/my")
     } catch (e) {
         console.log(e)
     }
@@ -21,5 +21,6 @@ const loginUser = async (req, res) => {
 
 
 module.exports = {
-    getLoginPage
+    getLoginPage,
+    loginUser
 }
