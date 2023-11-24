@@ -60,9 +60,9 @@ const registerUser = async  (req, res) => {
             return res.redirect("/auth/register")
         }
         await User.create(
-            email,
-            name,
-            password
+            req.body.email,
+            req.body.name,
+            req.body.password
         )
         return res.redirect("/diary/my")
     } catch (e) {
