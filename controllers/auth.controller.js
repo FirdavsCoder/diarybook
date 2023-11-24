@@ -3,7 +3,7 @@ const User = db.user
 
 
 const getLoginPage = async (req, res) => {
-    const isAuthenticated = req.get("Cookie").split("=")[1]
+    const isAuthenticated = req.get("Cookie").split("=")[1] === "true"
     res.render("auth/login", {title: "Login Page", isAuthenticated})
 }
 
