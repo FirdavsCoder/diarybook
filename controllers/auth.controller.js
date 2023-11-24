@@ -17,7 +17,9 @@ const getLoginPage = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         const userExist = await User.findOne({where: {email: req.body.email}})
-        
+        if (userExist) {
+            const matchPassword = await bcrypt.compare(req.body.password, userExist.password)
+        }
     } catch (e) {
         console.log(e)
     }
