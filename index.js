@@ -3,6 +3,8 @@ const dotenv = require("dotenv")
 const exphbs = require("express-handlebars")
 const session = require("express-session")
 const path = require("path")
+const pgStorage= require("connect-pg-simple")(session)
+const pool = require("./config/db")
 const dailyRoutes = require("./routes/dailyRoutes")
 const db = require("./models/index")
 const authRoutes = require("./routes/authRoutes")
@@ -22,6 +24,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, "public")))
 app.use(session({
+    store: new pgStorage({
+        pool: pool,
+        tableName: 'user_session'
+    }),
     secret: "my secret value",
     resave: false,
     saveUninitialized: false

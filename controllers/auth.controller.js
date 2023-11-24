@@ -17,11 +17,25 @@ const getLoginPage = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         req.session.isLogged = true
-        res.redirect("/diary/my")
+        req.session.user = {
+            id: 1,
+            email: 'user@mail.com',
+            name: 'user',
+            password: '1234567'
+        }
+        console.log(req.session)
+        req.session.save(err => {
+                if(err) throw err;
+                res.redirect("/diary/my")
+            }
+        )
     } catch (e) {
         console.log(e)
     }
 }
+
+
+
 
 
 module.exports = {
