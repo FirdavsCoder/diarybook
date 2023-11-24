@@ -1,6 +1,6 @@
 const db = require("../models/index")
 const User = db.user
-
+const bcrypt = require("bcryptjs")
 
 const getLoginPage = async (req, res) => {
     try {
@@ -59,11 +59,13 @@ const registerUser = async  (req, res) => {
         if (userEmailExist) {
             return res.redirect("/auth/register")
         }
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password, salt)
         await User.create(
             {
                 email,
                 name,
-                password
+                hashedPassword
             }
         )
         return res.redirect("/auth/login")
