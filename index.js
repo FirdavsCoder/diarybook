@@ -5,7 +5,7 @@ const session = require("express-session")
 const path = require("path")
 const pgStorage= require("connect-pg-simple")(session)
 const pool = require("./config/db")
-const dailyRoutes = require("./routes/dailyRoutes")
+const dailyRoutes = require("./routes/dairyRoutes")
 const db = require("./models/index")
 const authRoutes = require("./routes/authRoutes")
 
