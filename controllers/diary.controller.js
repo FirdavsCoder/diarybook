@@ -90,10 +90,10 @@ const deleteDiary = async (req, res) => {
 }
 
 const addCommentToDiary = async (req, res) => {
-    console.log(req.session.user)
+    console.log(req.session)
     try {
         await Comment.create({
-            name: "Username",
+            name: req.session.user.name,
             comment: req.body.comment,
             diaryId: req.params.id
         })
