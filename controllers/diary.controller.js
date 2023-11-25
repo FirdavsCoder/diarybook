@@ -18,7 +18,8 @@ const addNewDiary = async (req, res) => {
         const { imageUrl, text } = req.body
         await Diary.create({
             imageUrl: imageUrl,
-            text: text
+            text: text,
+            userId: req.session.user.id
         })
         res.redirect("/diary/my")
     } catch (error) {
