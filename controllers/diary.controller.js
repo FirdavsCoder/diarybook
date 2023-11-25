@@ -10,9 +10,10 @@ const getMyDiary= async (req, res) => {
         nest: true
     })
     const diaries = await data.toJSON()
+    console.log(diaries)
     res.render("diary/my-diary", {
         title: "My diary",
-        diaries: diaries.reverse(),
+        diaries: diaries.reverse,
         isAuthenticated: req.session.isLogged
     })
 }
