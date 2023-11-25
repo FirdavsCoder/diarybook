@@ -3,7 +3,13 @@ const Diary = db.diary
 const Comment = db.comment
 
 const getMyDiary= async (req, res) => {
-    const diaries = await Diary.findAll({raw: true})
+    const data = await Diary.findAll({
+        raw: false,
+        plain: true,
+        include: ['user'],
+        nest: true
+    })
+    const diaries = await data.toJSON()
     res.render("diary/my-diary", {
         title: "My diary",
         diaries: diaries.reverse(),
@@ -51,7 +57,8 @@ const updateDiaryGetPage= async (req, res) => {
     const diary = await Diary.findByPk(req.params.id, {raw: true})
     res.render("diary/update-diary", {
         title: "Update diary",
-        diary
+        diary,
+        isAuthenticated: req.session.isLogged
     })
 }
 
