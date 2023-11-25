@@ -90,6 +90,7 @@ const deleteDiary = async (req, res) => {
 }
 
 const addCommentToDiary = async (req, res) => {
+    console.log(req.session.user)
     try {
         await Comment.create({
             name: "Username",
