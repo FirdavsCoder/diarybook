@@ -7,6 +7,7 @@ const pgStorage= require("connect-pg-simple")(session)
 const pool = require("./config/db")
 const dailyRoutes = require("./routes/dairyRoutes")
 const db = require("./models/index")
+const userRoutes = require("./routes/userRoutes")
 const authRoutes = require("./routes/authRoutes")
 
 
@@ -39,6 +40,7 @@ app.use(session({
 // Initialize Routes
 app.use("/diary", dailyRoutes)
 app.use("/auth", authRoutes)
+app.use("/user", userRoutes)
 
 
 
