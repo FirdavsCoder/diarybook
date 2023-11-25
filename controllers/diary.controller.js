@@ -4,16 +4,17 @@ const Comment = db.comment
 
 const getMyDiary= async (req, res) => {
     const data = await Diary.findAll({
-        raw: false,
-        plain: true,
+        raw: true,
+        plain: false,
         include: ['user'],
         nest: true
     })
-    const diaries = await data.toJSON()
-    console.log(diaries)
+    console.log(data)
+    // const diaries = await data.toJSON()
+    // console.log(diaries)
     res.render("diary/my-diary", {
         title: "My diary",
-        diaries: diaries.reverse,
+        diaries: data.reverse(),
         isAuthenticated: req.session.isLogged
     })
 }
@@ -39,7 +40,7 @@ const getDiaryById= async (req, res) => {
     const data = await Diary.findByPk(Number(req.params.id), {
         raw: false,
         plain: true,
-        include: ['comment'],
+        include: ['comment', 'user'],
         nest: true
     })
     const diary = await data.toJSON()
